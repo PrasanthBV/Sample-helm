@@ -2,7 +2,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: {{ include "my-nginx-chart.fullname" . }}
+  name: my-nginx-service-ingress
   annotations:
     {{- toYaml .Values.ingress.annotations | nindent 4 }}
 spec:
@@ -16,7 +16,7 @@ spec:
             pathType: {{ .pathType }}
             backend:
               service:
-                name: {{ include "my-nginx-chart.fullname" $ }}
+                name: my-nginx-service-service
                 port:
                   number: {{ $.Values.service.port }}
           {{- end }}

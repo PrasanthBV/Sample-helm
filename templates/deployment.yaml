@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ include "my-nginx-chart.fullname" . }}
+  name: my-nginx-service-deploy
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ include "my-nginx-chart.name" . }}
+      app: my-nginx-service-deploy
   template:
     metadata:
       labels:
-        app: {{ include "my-nginx-chart.name" . }}
+        app: my-nginx-service-deploy
     spec:
       containers:
         - name: nginx
